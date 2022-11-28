@@ -21,6 +21,7 @@ Route::group(['prefix' => '/'], function () {
     })->name('index');
     Route::group(['prefix' => 'cliente'], function () {
         Route::get('/', [ClienteController::class, 'index'])->name('cliente.index');
+        Route::post('/', [ClienteController::class, 'store'])->name('cliente.create');
     });
     Route::group(['prefix' => 'colaborador'], function () {
         Route::get('/', [ColaboradorController::class, 'index'])->name('colaborador.index');

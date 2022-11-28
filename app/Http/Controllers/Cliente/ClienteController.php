@@ -11,4 +11,9 @@ class ClienteController extends Controller
     {
         return view('cliente.index');
     }
+
+    public function store(Request $request)
+    {
+        dd($request->all());
+    }
 }
