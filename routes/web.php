@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Cliente\ClienteController;
 use App\Http\Controllers\Colaborador\ColaboradorController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => '/'], function () {
     Route::get('', function () {
         return view('dashboards.index');
+    })->name('index');
+    Route::group(['prefix' => 'cliente'], function () {
+        Route::get('/', [ClienteController::class, 'index'])->name('cliente.index');
     });
     Route::group(['prefix' => 'colaborador'], function () {
         Route::get('/', [ColaboradorController::class, 'index'])->name('colaborador.index');

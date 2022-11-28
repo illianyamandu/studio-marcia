@@ -8,7 +8,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title')</title>
+    <title>Studio</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -21,18 +21,29 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <body class="hold-transition sidebar-mini">
     <style>
-        .main-sidebar{
+        .main-sidebar {
             background-color: black;
 
         }
-        .main-sidebar a{
+
+        .main-sidebar a {
             color: white !important;
+        }
+
+        .section-action {
+            display: flex;
+            justify-content: right;
+        }
+
+        .section-action a {
+            display: flex;
+            flex-direction: column;
         }
     </style>
     <div class="wrapper">
 
         <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light" style="background-color: #ededed;">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -41,7 +52,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </li>
             </ul>
 
-            
+
         </nav>
         <!-- /.navbar -->
 
@@ -73,7 +84,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('index') }}" class="nav-link">
                                 <i class="nav-icon fa fa-university"></i>
                                 <p>
                                     Painel de Controle
@@ -113,6 +124,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>
+                                <label class="text-semibold">
+                                    @yield('title')
+                                </label>
+                            </h1>
+                        </div><!-- /.col -->
+                        <div class="col-sm-6 section-action">
+                            @yield('actions')
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+
             @yield('content')
         </div>
         <!-- /.content-wrapper -->
